@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia - Mundo Inclusivo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="device" id="device" data-theme="default">
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <!-- Cabeçalho Principal -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">♿</div>
+      <div>
+        <div class="brand-name">Guia do App</div>
+        <div class="brand-sub">Entenda o Mundo Inclusivo</div>
+      </div>
+    </div>
+    <div class="quick-actions">
+      <button type="button" class="icon-btn" id="toggleContrast" aria-pressed="false" aria-label="Ativar alto contraste">◐</button>
+      <button type="button" class="icon-btn" id="toggleFontQuick" aria-label="Aumentar tamanho da fonte">A+</button>
+    </div>
+  </header>
+
+  <!-- TELA 1: INÍCIO (Visão Geral) -->
+  <main id="main" class="screen" data-screen="home" tabindex="-1">
+    <p class="eyebrow">Sobre a aplicação</p>
+    <div class="hero">
+      <h1>Mundo Inclusivo</h1>
+      <p>O <strong>Mundo Inclusivo</strong> é um aplicativo web progressivo (PWA) de conscientização. Ele ensina sobre os direitos, a linguagem correta e as atitudes para a inclusão de Pessoas com Deficiência (PCD).</p>
+      <div class="stat-row">
+        <div class="stat"><b>Formato</b><span>Quiz Interativo</span></div>
+        <div class="stat"><b>Tecnologia</b><span>PWA Offline</span></div>
+      </div>
+    </div>
+
+    <p class="section-title">Pilares do Aplicativo</p>
+    <div class="barrier-grid">
+      <div class="barrier-card">
+        <span class="ic" aria-hidden="true">📚</span>
+        <h3>Educação</h3>
+        <p>Questões sobre a Lei Brasileira de Inclusão (LBI) e boas práticas.</p>
+      </div>
+      <div class="barrier-card">
+        <span class="ic" aria-hidden="true">♿</span>
+        <h3>Acessibilidade</h3>
+        <p>Suporte a alto contraste, ajuste de texto e leitores de tela.</p>
+      </div>
+      <div class="barrier-card">
+        <span class="ic" aria-hidden="true">📱</span>
+        <h3>PWA Nativo</h3>
+        <p>Instalável no celular e funcional mesmo sem conexão com a internet.</p>
+      </div>
+      <div class="barrier-card">
+        <span class="ic" aria-hidden="true">🎯</span>
+        <h3>Atitudinal</h3>
+        <p>Combate a preconceitos e estigmas do dia a dia.</p>
+      </div>
+    </div>
+
+    <p class="section-title">Navegação da Explicação</p>
+    <div class="quick-nav">
+      <button type="button" data-goto="recursos"><span class="ic">🧩</span><b>Recursos</b><span>Funcionalidades do app</span></button>
+      <button type="button" data-goto="leitor"><span class="ic">🔊</span><b>Ouvir Guia</b><span>Leitura do resumo</span></button>
+      <button type="button" data-goto="tecnica"><span class="ic">💻</span><b>Técnico</b><span>Arquitetura de código</span></button>
+      <button type="button" data-goto="perguntas"><span class="ic">❓</span><b>Perguntas</b><span>Conteúdo abordado</span></button>
+    </div>
+  </main>
+
+  <!-- TELA 2: RECURSOS -->
+  <section class="screen" data-screen="recursos" hidden>
+    <p class="eyebrow">Funcionalidades</p>
+    <h1 class="page-title">Como o App Funciona</h1>
+    
+    <input class="search" id="placeSearch" type="search" placeholder="🔎 Filtrar recurso..." aria-label="Procurar recurso">
+    
+    <div class="filter-row">
+      <button type="button" class="chip active" data-filter="todos">Todos</button>
+      <button type="button" class="chip" data-filter="acessibilidade">Acessibilidade</button>
+      <button type="button" class="chip" data-filter="pwa">PWA</button>
+      <button type="button" class="chip" data-filter="interacao">Interação</button>
+    </div>
+
+    <div id="places"></div>
+  </section>
+
+  <!-- TELA 3: LEITOR DE VOZ (Resumo Falado) -->
+  <section class="screen" data-screen="leitor" hidden>
+    <p class="eyebrow">Acessibilidade de Áudio</p>
+    <h1 class="page-title">Ouça a explicação</h1>
+    <div class="reader-box">
+      <div class="cam-preview">
+        📢<br><strong>Assistente de Leitura</strong><br>
+        <small>Ouça o resumo do funcionamento do aplicativo Mundo Inclusivo.</small>
+      </div>
+      <textarea id="ocrText">O Mundo Inclusivo é um quiz interativo desenvolvido para promover a conscientização sobre a inclusão de pessoas com deficiência. Ele traz recursos de acessibilidade como modo de alto contraste e aumento de fonte. Por ser um Progressive Web App, ele pode ser instalado diretamente na tela inicial do celular e utilizado offline.</textarea>
+      
+      <div class="reader-controls">
+        <button type="button" class="btn primary" id="speakBtn">🔊 Ouvir Explicação</button>
+        <button type="button" class="btn ghost" id="stopBtn" disabled>⏹ Parar</button>
+      </div>
+      
+      <div class="field-row">
+        <label for="rateRange">Velocidade</label>
+        <input type="range" id="rateRange" min=".6" max="1.6" step=".1" value="1">
+        <span id="rateVal">1.0×</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TELA 4: ARQUITETURA TÉCNICA -->
+  <section class="screen" data-screen="tecnica" hidden>
+    <p class="eyebrow">Desenvolvimento</p>
+    <h1 class="page-title">Estrutura e Código</h1>
+    
+    <div class="post-form">
+      <p style="font-size: 0.85rem; line-height: 1.4;">Este aplicativo utiliza tecnologias web nativas sem dependência de frameworks externos:</p>
+    </div>
+
+    <div id="posts"></div>
+  </section>
+
+  <!-- TELA 5: CONTEÚDO PEDAGÓGICO -->
+  <section class="screen" data-screen="perguntas" hidden>
+    <p class="eyebrow">Conteúdo do Quiz</p>
+    <h1 class="page-title">Tópicos de Conscientização</h1>
+    
+    <div class="profile-card">
+      <div class="profile-avatar">📖</div>
+      <div>
+        <h2>Temas Abordados</h2>
+        <p>Conteúdo baseado na Lei nº 13.146/2015</p>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="setting-row">
+        <div>
+          <b>Terminologia Correta</b>
+          <span>Uso de "Pessoa com Deficiência" (PCD) em vez de PNE.</span>
+        </div>
+        <span>1️⃣</span>
+      </div>
+      <div class="setting-row">
+        <div>
+          <b>Autonomia e Apoio</b>
+          <span>Perguntar como ajudar antes de qualquer toque físico.</span>
+        </div>
+        <span>2️⃣</span>
+      </div>
+      <div class="setting-row">
+        <div>
+          <b>Acessibilidade Atitudinal</b>
+          <span>Eliminação de barreiras comportamentais e preconceitos.</span>
+        </div>
+        <span>3️⃣</span>
+      </div>
+      <div class="setting-row">
+        <div>
+          <b>Lei Brasileira de Inclusão (LBI)</b>
+          <span>Garantia de direitos fundamentais e igualdade de acesso.</span>
+        </div>
+        <span>4️⃣</span>
+      </div>
+      <div class="setting-row">
+        <div>
+          <b>Convivência Direta</b>
+          <span>Comunicação no mesmo nível visual (ex: cadeirantes).</span>
+        </div>
+        <span>5️⃣</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TELA 6: CONFIGURAÇÕES -->
+  <section class="screen" data-screen="config" hidden>
+    <p class="eyebrow">Preferências do Guia</p>
+    <h1 class="page-title">Ajustes de Exibição</h1>
+    
+    <div class="settings-group">
+      <div class="setting-row">
+        <div><b>Alto contraste</b><span>Modo escuro com realce</span></div>
+        <label class="switch">
+          <input type="checkbox" id="contrastSwitch">
+          <span class="track"></span><span class="thumb"></span>
+        </label>
+      </div>
+      <div class="setting-row">
+        <div><b>Tamanho da fonte</b><span>Ajuste da escala visual</span></div>
+        <div class="font-controls">
+          <button id="fontMinus">−</button>
+          <span id="fontLabel">100%</span>
+          <button id="fontPlus">+</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botão Flutuante de Atalho -->
+  <button type="button" class="sos-btn" id="sosBtn">ℹ️ Resumo</button>
+
+  <!-- Navegação Inferior (Bottom Nav) -->
+  <nav class="bottomnav" aria-label="Navegação principal">
+    <button type="button" class="navbtn" data-goto="home" aria-current="true">🏠<span>Início</span></button>
+    <button type="button" class="navbtn" data-goto="recursos" aria-current="false">🧩<span>Recursos</span></button>
+    <button type="button" class="navbtn" data-goto="leitor" aria-current="false">🔊<span>Ouvir</span></button>
+    <button type="button" class="navbtn" data-goto="tecnica" aria-current="false">💻<span>Código</span></button>
+    <button type="button" class="navbtn" data-goto="perguntas" aria-current="false">❓<span>Tópicos</span></button>
+  </nav>
+</div>
+
+<div id="liveRegion" class="sr-only" role="status" aria-live="polite"></div>
+<script src="js/script.js"></script>
+</body>
+</html>
