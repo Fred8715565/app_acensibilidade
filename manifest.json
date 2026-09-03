@@ -17,48 +17,13 @@
       "src": "img/launchericon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      
     },
     {
       "src": "img/launchericon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "img/512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "img/192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
+      
     }
-  ],
-  "shortcuts": [
-    {
-      "name": "Mapa de acessibilidade",
-      "short_name": "Mapa",
-      "description": "Ver locais avaliados perto de você",
-      "url": "./index.html?tela=mapa",
-      "icons": [{ "src": "img/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Leitor de texto",
-      "short_name": "Leitor",
-      "description": "Ler um texto em voz alta",
-      "url": "./index.html?tela=leitor",
-      "icons": [{ "src": "img/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Emergência",
-      "short_name": "SOS",
-      "description": "Acionar contato de emergência",
-      "url": "./index.html?tela=sos",
-      "icons": [{ "src": "img/icon-192.png", "sizes": "192x192" }]
-    }
-  ]
+    
 }
