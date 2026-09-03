@@ -14,10 +14,10 @@
   "categories": ["lifestyle", "utilities", "medical"],
   "img": [
     {
-      "src": "img/launchericon-192x192.png",
+      "src": "img/192.png",
       "sizes": "192x192",
       "type": "image/png",
-      
+      "purpose": "any"
     },
     {
       "src": "img/launchericon-512x512.png",
