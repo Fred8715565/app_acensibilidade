@@ -1,218 +1,360 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guia - Mundo Inclusivo</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AcessaAqui</title>
+<meta name="description" content="App de acessibilidade: mapa acessível, leitor de texto por câmera, legendas ao vivo e botão de emergência.">
+<meta name="theme-color" content="#1F6F5C">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="img/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AcessaAqui">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Atkinson+Hyperlegible+Next:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="device" id="device" data-theme="default">
+
+<div class="device" data-theme="default" id="device">
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-  <!-- Cabeçalho Principal -->
   <header class="topbar">
     <div class="brand">
-      <div class="brand-mark" aria-hidden="true">♿</div>
+      <div class="brand-mark" aria-hidden="true">A</div>
       <div>
-        <div class="brand-name">Guia do App</div>
-        <div class="brand-sub">Entenda o Mundo Inclusivo</div>
+        <div class="brand-name">AcessaAqui</div>
+        <div class="brand-sub">Autonomia em cada trajeto</div>
       </div>
     </div>
     <div class="quick-actions">
-      <button type="button" class="icon-btn" id="toggleContrast" aria-pressed="false" aria-label="Ativar alto contraste">◐</button>
-      <button type="button" class="icon-btn" id="toggleFontQuick" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button class="icon-btn" id="installBtn" aria-label="Instalar aplicativo" title="Instalar app" hidden>⬇</button>
+      <button class="icon-btn" id="toggleContrast" aria-pressed="false" aria-label="Ativar alto contraste" title="Alto contraste">◐</button>
+      <button class="icon-btn" id="toggleFontQuick" aria-label="Aumentar tamanho da fonte" title="Aumentar fonte">A+</button>
     </div>
   </header>
 
-  <!-- TELA 1: INÍCIO (Visão Geral) -->
   <main id="main" class="screen" data-screen="home" tabindex="-1">
-    <p class="eyebrow">Sobre a aplicação</p>
+    <p class="eyebrow">Comece por aqui</p>
     <div class="hero">
-      <h1>Mundo Inclusivo</h1>
-      <p>O <strong>Mundo Inclusivo</strong> é um aplicativo web progressivo (PWA) de conscientização. Ele ensina sobre os direitos, a linguagem correta e as atitudes para a inclusão de Pessoas com Deficiência (PCD).</p>
+      <h1>O que é acessibilidade?</h1>
+      <p>Acessibilidade é remover as barreiras — físicas, digitais e de comunicação — que impedem uma pessoa com deficiência de ir e vir, entender e participar com a mesma autonomia que qualquer outra pessoa. Não é um recurso extra: é a garantia de um direito.</p>
+      <p style="margin-top:10px;">O AcessaAqui existe para reduzir essas barreiras no dia a dia, com informação confiável sobre lugares, leitura de textos em voz alta, legendas e um jeito rápido de pedir ajuda.</p>
       <div class="stat-row">
-        <div class="stat"><b>Formato</b><span>Quiz Interativo</span></div>
-        <div class="stat"><b>Tecnologia</b><span>PWA Offline</span></div>
+        <div class="stat"><b>14,4 mi</b><span>de pessoas com deficiência no Brasil</span></div>
+        <div class="stat"><b>7,3%</b><span>da população com 2 anos ou mais</span></div>
       </div>
+      <p class="cite">Fonte: IBGE, Censo Demográfico 2022 (dados preliminares).</p>
     </div>
 
-    <p class="section-title">Pilares do Aplicativo</p>
+    <p class="section-title">Tipos de barreira que enfrentamos</p>
     <div class="barrier-grid">
       <div class="barrier-card">
-        <span class="ic" aria-hidden="true">📚</span>
-        <h3>Educação</h3>
-        <p>Questões sobre a Lei Brasileira de Inclusão (LBI) e boas práticas.</p>
+        <span class="ic" aria-hidden="true">👁️</span>
+        <h3>Visual</h3>
+        <p>Dificuldade para enxergar ambientes, telas ou textos impressos sem apoio.</p>
       </div>
       <div class="barrier-card">
-        <span class="ic" aria-hidden="true">♿</span>
-        <h3>Acessibilidade</h3>
-        <p>Suporte a alto contraste, ajuste de texto e leitores de tela.</p>
+        <span class="ic" aria-hidden="true">👂</span>
+        <h3>Auditiva</h3>
+        <p>Acesso limitado a áudios, vídeos e anúncios sonoros sem legenda.</p>
       </div>
       <div class="barrier-card">
-        <span class="ic" aria-hidden="true">📱</span>
-        <h3>PWA Nativo</h3>
-        <p>Instalável no celular e funcional mesmo sem conexão com a internet.</p>
+        <span class="ic" aria-hidden="true">🦽</span>
+        <h3>Motora</h3>
+        <p>Obstáculos como degraus, portas estreitas e falta de rampas ou elevadores.</p>
       </div>
       <div class="barrier-card">
-        <span class="ic" aria-hidden="true">🎯</span>
-        <h3>Atitudinal</h3>
-        <p>Combate a preconceitos e estigmas do dia a dia.</p>
+        <span class="ic" aria-hidden="true">🧠</span>
+        <h3>Intelectual</h3>
+        <p>Informações confusas, com pouca clareza ou tempo insuficiente para decidir.</p>
       </div>
     </div>
 
-    <p class="section-title">Navegação da Explicação</p>
+    <p class="section-title">Acesso rápido</p>
     <div class="quick-nav">
-      <button type="button" data-goto="recursos"><span class="ic">🧩</span><b>Recursos</b><span>Funcionalidades do app</span></button>
-      <button type="button" data-goto="leitor"><span class="ic">🔊</span><b>Ouvir Guia</b><span>Leitura do resumo</span></button>
-      <button type="button" data-goto="tecnica"><span class="ic">💻</span><b>Técnico</b><span>Arquitetura de código</span></button>
-      <button type="button" data-goto="perguntas"><span class="ic">❓</span><b>Perguntas</b><span>Conteúdo abordado</span></button>
+      <button data-goto="mapa"><span class="ic" aria-hidden="true">🗺️</span><b>Mapa de acessibilidade</b><span>Avalie e encontre lugares</span></button>
+      <button data-goto="leitor"><span class="ic" aria-hidden="true">📷</span><b>Leitor por câmera</b><span>OCR + voz</span></button>
+      <button data-goto="comunidade"><span class="ic" aria-hidden="true">💬</span><b>Comunidade</b><span>Dicas de quem vive isso</span></button>
+      <button data-goto="config"><span class="ic" aria-hidden="true">⚙️</span><b>Configurações</b><span>Contraste e fonte</span></button>
     </div>
   </main>
 
-  <!-- TELA 2: RECURSOS -->
-  <section class="screen" data-screen="recursos" hidden>
-    <p class="eyebrow">Funcionalidades</p>
-    <h1 class="page-title">Como o App Funciona</h1>
-    
-    <input class="search" id="placeSearch" type="search" placeholder="🔎 Filtrar recurso..." aria-label="Procurar recurso">
-    
-    <div class="filter-row">
-      <button type="button" class="chip active" data-filter="todos">Todos</button>
-      <button type="button" class="chip" data-filter="acessibilidade">Acessibilidade</button>
-      <button type="button" class="chip" data-filter="pwa">PWA</button>
-      <button type="button" class="chip" data-filter="interacao">Interação</button>
+  <section class="screen" data-screen="mapa" hidden>
+    <p class="eyebrow">Mapa de acessibilidade</p>
+    <h1 style="font-size:1.25rem;margin-bottom:14px;">Locais avaliados perto de você</h1>
+
+    <label for="mapSearch" class="sr-only">Buscar local pelo nome</label>
+    <input type="search" id="mapSearch" class="search-input" placeholder="🔎 Buscar local, ex: farmácia, biblioteca...">
+
+    <div class="filter-row" role="group" aria-label="Filtrar por recurso">
+      <button class="chip" data-filter="todos" aria-pressed="true">Todos</button>
+      <button class="chip" data-filter="rampa" aria-pressed="false">♿ Rampa</button>
+      <button class="chip" data-filter="banheiro" aria-pressed="false">🚻 Banheiro adaptado</button>
+      <button class="chip" data-filter="pisotatil" aria-pressed="false">🔲 Piso tátil</button>
+      <button class="chip" data-filter="vaga" aria-pressed="false">🅿️ Vaga reservada</button>
+      <button class="chip" data-filter="elevador" aria-pressed="false">🛗 Elevador</button>
     </div>
 
-    <div id="places"></div>
+    <p id="mapEmpty" class="empty-note" hidden>Nenhum local encontrado com essa busca ou filtro.</p>
+
+    <div id="placesList">
+      <article class="place-card" data-tags="rampa banheiro" data-name="Padaria Bom Pão">
+        <div class="place-head">
+          <div><h3>Padaria Bom Pão</h3><div class="cat">Restaurante · 320 m</div></div>
+          <div class="place-head-actions">
+            <div class="stars">★★★★☆</div>
+            <button class="save-btn" type="button" aria-pressed="false" aria-label="Salvar Padaria Bom Pão">☆ Salvar</button>
+          </div>
+        </div>
+        <div class="tag-row">
+          <span class="tag ok">♿ Rampa</span>
+          <span class="tag ok">🚻 Banheiro adaptado</span>
+          <span class="tag">🔲 Piso tátil</span>
+        </div>
+        <p class="place-note">"Entrada sem degraus e balcão baixo para cadeira de rodas." — Marina S.</p>
+      </article>
+
+      <article class="place-card" data-tags="rampa vaga" data-name="Farmácia Vida">
+        <div class="place-head">
+          <div><h3>Farmácia Vida</h3><div class="cat">Saúde · 480 m</div></div>
+          <div class="place-head-actions">
+            <div class="stars">★★★☆☆</div>
+            <button class="save-btn" type="button" aria-pressed="false" aria-label="Salvar Farmácia Vida">☆ Salvar</button>
+          </div>
+        </div>
+        <div class="tag-row">
+          <span class="tag ok">♿ Rampa</span>
+          <span class="tag">🚻 Banheiro adaptado</span>
+          <span class="tag ok">🅿️ Vaga reservada</span>
+        </div>
+        <p class="place-note">"Rampa um pouco íngreme, mas atendentes ajudam sem constranger." — Ícaro P.</p>
+      </article>
+
+      <article class="place-card" data-tags="rampa elevador pisotatil" data-name="Biblioteca Municipal">
+        <div class="place-head">
+          <div><h3>Biblioteca Municipal</h3><div class="cat">Cultura · 900 m</div></div>
+          <div class="place-head-actions">
+            <div class="stars">★★★★★</div>
+            <button class="save-btn" type="button" aria-pressed="false" aria-label="Salvar Biblioteca Municipal">☆ Salvar</button>
+          </div>
+        </div>
+        <div class="tag-row">
+          <span class="tag ok">♿ Rampa</span>
+          <span class="tag ok">🛗 Elevador</span>
+          <span class="tag ok">🔲 Piso tátil</span>
+        </div>
+        <p class="place-note">"Piso tátil completo até a seção infantil e funcionários treinados em Libras." — Renata A.</p>
+      </article>
+
+      <article class="place-card" data-tags="rampa banheiro vaga elevador" data-name="Shopping Vila Nova">
+        <div class="place-head">
+          <div><h3>Shopping Vila Nova</h3><div class="cat">Compras · 1,2 km</div></div>
+          <div class="place-head-actions">
+            <div class="stars">★★★★☆</div>
+            <button class="save-btn" type="button" aria-pressed="false" aria-label="Salvar Shopping Vila Nova">☆ Salvar</button>
+          </div>
+        </div>
+        <div class="tag-row">
+          <span class="tag ok">♿ Rampa</span>
+          <span class="tag ok">🚻 Banheiro adaptado</span>
+          <span class="tag ok">🅿️ Vaga reservada</span>
+          <span class="tag ok">🛗 Elevador</span>
+        </div>
+        <p class="place-note">"Todos os elevadores com comando em braile e voz." — Diego F.</p>
+      </article>
+
+      <article class="place-card" data-tags="pisotatil banheiro" data-name="Posto de Saúde Bairro Novo">
+        <div class="place-head">
+          <div><h3>Posto de Saúde Bairro Novo</h3><div class="cat">Saúde · 650 m</div></div>
+          <div class="place-head-actions">
+            <div class="stars">★★★★☆</div>
+            <button class="save-btn" type="button" aria-pressed="false" aria-label="Salvar Posto de Saúde Bairro Novo">☆ Salvar</button>
+          </div>
+        </div>
+        <div class="tag-row">
+          <span class="tag ok">🔲 Piso tátil</span>
+          <span class="tag ok">🚻 Banheiro adaptado</span>
+        </div>
+        <p class="place-note">"Piso tátil até a recepção e fila prioritária bem sinalizada." — Rafael T.</p>
+      </article>
+    </div>
+
+    <button class="add-place-btn" id="togglePlaceForm" type="button" aria-expanded="false" aria-controls="addPlaceForm">+ Avaliar um novo local</button>
+
+    <form id="addPlaceForm" class="add-place-form" hidden>
+      <label for="npName">Nome do local</label>
+      <input type="text" id="npName" required placeholder="Ex: Café da Esquina">
+
+      <label for="npCategory">Categoria</label>
+      <input type="text" id="npCategory" placeholder="Ex: Restaurante, Saúde, Cultura...">
+
+      <span class="form-label">Sua avaliação</span>
+      <div class="star-picker" id="starPicker" role="radiogroup" aria-label="Avaliação em estrelas">
+        <button type="button" data-value="1" role="radio" aria-checked="false" aria-label="1 estrela">★</button>
+        <button type="button" data-value="2" role="radio" aria-checked="false" aria-label="2 estrelas">★</button>
+        <button type="button" data-value="3" role="radio" aria-checked="false" aria-label="3 estrelas">★</button>
+        <button type="button" data-value="4" role="radio" aria-checked="false" aria-label="4 estrelas">★</button>
+        <button type="button" data-value="5" role="radio" aria-checked="false" aria-label="5 estrelas">★</button>
+      </div>
+
+      <span class="form-label">Recursos disponíveis</span>
+      <div class="checkbox-grid">
+        <label class="check-pill"><input type="checkbox" value="rampa"> ♿ Rampa</label>
+        <label class="check-pill"><input type="checkbox" value="banheiro"> 🚻 Banheiro adaptado</label>
+        <label class="check-pill"><input type="checkbox" value="pisotatil"> 🔲 Piso tátil</label>
+        <label class="check-pill"><input type="checkbox" value="vaga"> 🅿️ Vaga reservada</label>
+        <label class="check-pill"><input type="checkbox" value="elevador"> 🛗 Elevador</label>
+      </div>
+
+      <label for="npComment">Comentário (opcional)</label>
+      <textarea id="npComment" placeholder="Conte como foi sua experiência no local"></textarea>
+
+      <div class="form-actions">
+        <button type="submit" class="btn primary">Publicar avaliação</button>
+        <button type="button" class="btn ghost" id="cancelPlaceForm">Cancelar</button>
+      </div>
+    </form>
   </section>
 
-  <!-- TELA 3: LEITOR DE VOZ (Resumo Falado) -->
   <section class="screen" data-screen="leitor" hidden>
-    <p class="eyebrow">Acessibilidade de Áudio</p>
-    <h1 class="page-title">Ouça a explicação</h1>
+    <p class="eyebrow">Leitor de texto por câmera</p>
+    <h1 style="font-size:1.25rem;margin-bottom:14px;">Aponte, capture e ouça</h1>
     <div class="reader-box">
-      <div class="cam-preview">
-        📢<br><strong>Assistente de Leitura</strong><br>
-        <small>Ouça o resumo do funcionamento do aplicativo Mundo Inclusivo.</small>
+
+      <div class="cam-wrap">
+        <div class="cam-viewport" id="camViewport">
+          <video id="camVideo" playsinline autoplay muted class="cam-video" hidden></video>
+          <div class="cam-placeholder" id="camPlaceholder">
+            📷<br>A câmera está desligada<br>
+            <span>Toque em "Ativar câmera" e permita o acesso quando o navegador perguntar.</span>
+          </div>
+          <canvas id="camCanvas" hidden></canvas>
+        </div>
+
+        <p class="cam-error" id="camError" hidden role="alert"></p>
+
+        <div class="reader-controls" style="margin-top:12px;">
+          <button class="btn primary" id="startCameraBtn">📷 Ativar câmera</button>
+          <button class="btn ghost" id="stopCameraBtn" disabled>⏹ Parar câmera</button>
+        </div>
+        <div class="reader-controls">
+          <button class="btn primary" id="captureBtn" disabled>📸 Capturar e reconhecer texto</button>
+        </div>
+
+        <div class="ocr-progress" id="ocrProgress" hidden aria-live="polite">
+          <div class="ocr-progress-bar"><div class="ocr-progress-fill" id="ocrProgressFill"></div></div>
+          <span id="ocrProgressLabel">Preparando reconhecimento de texto...</span>
+        </div>
       </div>
-      <textarea id="ocrText">O Mundo Inclusivo é um quiz interativo desenvolvido para promover a conscientização sobre a inclusão de pessoas com deficiência. Ele traz recursos de acessibilidade como modo de alto contraste e aumento de fonte. Por ser um Progressive Web App, ele pode ser instalado diretamente na tela inicial do celular e utilizado offline.</textarea>
-      
+
+      <p class="form-label" style="margin-top:20px;">Ou edite/cole o texto manualmente</p>
+      <label for="ocrText" class="sr-only">Texto para leitura</label>
+      <textarea id="ocrText" placeholder="Cole aqui o texto capturado, por exemplo: &quot;Cardápio do dia — Prato feito R$ 22,00&quot;"></textarea>
       <div class="reader-controls">
-        <button type="button" class="btn primary" id="speakBtn">🔊 Ouvir Explicação</button>
-        <button type="button" class="btn ghost" id="stopBtn" disabled>⏹ Parar</button>
+        <button class="btn primary" id="speakBtn">🔊 Ler em voz alta</button>
+        <button class="btn ghost" id="stopBtn" disabled>⏹ Parar</button>
       </div>
-      
       <div class="field-row">
-        <label for="rateRange">Velocidade</label>
-        <input type="range" id="rateRange" min=".6" max="1.6" step=".1" value="1">
+        <label for="rateRange" style="min-width:90px;">Velocidade</label>
+        <input type="range" id="rateRange" min="0.6" max="1.6" step="0.1" value="1">
         <span id="rateVal">1.0×</span>
       </div>
+      <p style="font-size:0.72rem;color:var(--muted);margin-top:10px;">A câmera e o reconhecimento de texto (OCR) rodam direto no seu navegador, com o texto sempre em português. A leitura em voz alta usa o sintetizador de fala do dispositivo.</p>
+
+      <p class="section-title" style="margin-top:20px;">Histórico de leituras</p>
+      <ul class="history-list" id="historyList">
+        <li class="empty-note">Os textos que você capturar ou ouvir aparecerão aqui.</li>
+      </ul>
     </div>
   </section>
 
-  <!-- TELA 4: ARQUITETURA TÉCNICA -->
-  <section class="screen" data-screen="tecnica" hidden>
-    <p class="eyebrow">Desenvolvimento</p>
-    <h1 class="page-title">Estrutura e Código</h1>
-    
-    <div class="post-form">
-      <p style="font-size: 0.85rem; line-height: 1.4;">Este aplicativo utiliza tecnologias web nativas sem dependência de frameworks externos:</p>
-    </div>
+  <section class="screen" data-screen="comunidade" hidden>
+    <p class="eyebrow">Comunidade</p>
+    <h1 style="font-size:1.25rem;margin-bottom:14px;">Dicas de quem passou por lá</h1>
 
-    <div id="posts"></div>
+    <article class="post">
+      <div class="post-head">
+        <div class="avatar" aria-hidden="true">JL</div>
+        <div class="post-meta"><b>Joana L.</b><span>Usuária de cadeira de rodas · há 2 dias</span></div>
+      </div>
+      <p>O elevador do shopping do centro estava quebrado por semanas. Denunciei pelo app e hoje já foi consertado — voltem a avaliar o local!</p>
+      <span class="post-tag">Mobilidade</span>
+    </article>
+
+    <article class="post">
+      <div class="post-head">
+        <div class="avatar" aria-hidden="true">RT</div>
+        <div class="post-meta"><b>Rafael T.</b><span>Cuidador · há 5 dias</span></div>
+      </div>
+      <p>Dica para quem acompanha idosos: o posto de saúde do Bairro Novo tem piso tátil até a recepção e a fila prioritária é bem sinalizada.</p>
+      <span class="post-tag">Idosos</span>
+    </article>
+
+    <article class="post">
+      <div class="post-head">
+        <div class="avatar" aria-hidden="true">CM</div>
+        <div class="post-meta"><b>Carla M.</b><span>Surda · há 1 semana</span></div>
+      </div>
+      <p>O cinema da praça agora oferece sessões com legendas todo domingo. Coloquei os horários nos comentários do local.</p>
+      <span class="post-tag">Legendas</span>
+    </article>
   </section>
 
-  <!-- TELA 5: CONTEÚDO PEDAGÓGICO -->
-  <section class="screen" data-screen="perguntas" hidden>
-    <p class="eyebrow">Conteúdo do Quiz</p>
-    <h1 class="page-title">Tópicos de Conscientização</h1>
-    
-    <div class="profile-card">
-      <div class="profile-avatar">📖</div>
-      <div>
-        <h2>Temas Abordados</h2>
-        <p>Conteúdo baseado na Lei nº 13.146/2015</p>
-      </div>
-    </div>
-
-    <div class="settings-group">
-      <div class="setting-row">
-        <div>
-          <b>Terminologia Correta</b>
-          <span>Uso de "Pessoa com Deficiência" (PCD) em vez de PNE.</span>
-        </div>
-        <span>1️⃣</span>
-      </div>
-      <div class="setting-row">
-        <div>
-          <b>Autonomia e Apoio</b>
-          <span>Perguntar como ajudar antes de qualquer toque físico.</span>
-        </div>
-        <span>2️⃣</span>
-      </div>
-      <div class="setting-row">
-        <div>
-          <b>Acessibilidade Atitudinal</b>
-          <span>Eliminação de barreiras comportamentais e preconceitos.</span>
-        </div>
-        <span>3️⃣</span>
-      </div>
-      <div class="setting-row">
-        <div>
-          <b>Lei Brasileira de Inclusão (LBI)</b>
-          <span>Garantia de direitos fundamentais e igualdade de acesso.</span>
-        </div>
-        <span>4️⃣</span>
-      </div>
-      <div class="setting-row">
-        <div>
-          <b>Convivência Direta</b>
-          <span>Comunicação no mesmo nível visual (ex: cadeirantes).</span>
-        </div>
-        <span>5️⃣</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- TELA 6: CONFIGURAÇÕES -->
   <section class="screen" data-screen="config" hidden>
-    <p class="eyebrow">Preferências do Guia</p>
-    <h1 class="page-title">Ajustes de Exibição</h1>
-    
+    <p class="eyebrow">Configurações</p>
+    <h1 style="font-size:1.25rem;margin-bottom:14px;">Ajuste o app do seu jeito</h1>
+
     <div class="settings-group">
       <div class="setting-row">
-        <div><b>Alto contraste</b><span>Modo escuro com realce</span></div>
-        <label class="switch">
-          <input type="checkbox" id="contrastSwitch">
-          <span class="track"></span><span class="thumb"></span>
-        </label>
+        <div class="setting-label"><b>Alto contraste</b><span>Fundo preto e texto amarelo, contraste reforçado</span></div>
+        <label class="switch"><input type="checkbox" id="contrastSwitch"><span class="track"></span><span class="thumb"></span></label>
       </div>
       <div class="setting-row">
-        <div><b>Tamanho da fonte</b><span>Ajuste da escala visual</span></div>
+        <div class="setting-label"><b>Tamanho da fonte</b><span>De 100% a 300%</span></div>
         <div class="font-controls">
-          <button id="fontMinus">−</button>
+          <button id="fontMinus" aria-label="Diminuir fonte">−</button>
           <span id="fontLabel">100%</span>
-          <button id="fontPlus">+</button>
+          <button id="fontPlus" aria-label="Aumentar fonte">+</button>
         </div>
+      </div>
+      <div class="setting-row">
+        <div class="setting-label"><b>Paleta para daltonismo</b><span>Cores testadas para protanopia, deuteranopia e tritanopia</span></div>
+        <label class="switch"><input type="checkbox" id="colorblindSwitch" checked><span class="track"></span><span class="thumb"></span></label>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="setting-row">
+        <div class="setting-label"><b>Leitor de tela nativo</b><span>Compatível com VoiceOver e TalkBack</span></div>
+        <label class="switch"><input type="checkbox" id="screenReaderSwitch" checked><span class="track"></span><span class="thumb"></span></label>
+      </div>
+      <div class="setting-row">
+        <div class="setting-label"><b>Legendas automáticas</b><span>Em áudios e vídeos do app</span></div>
+        <label class="switch"><input type="checkbox" id="captionsSwitch" checked><span class="track"></span><span class="thumb"></span></label>
+      </div>
+      <div class="setting-row">
+        <div class="setting-label"><b>Compartilhar localização no SOS</b><span>Envio automático ao acionar emergência</span></div>
+        <label class="switch"><input type="checkbox" id="locationSwitch" checked><span class="track"></span><span class="thumb"></span></label>
       </div>
     </div>
   </section>
 
-  <!-- Botão Flutuante de Atalho -->
-  <button type="button" class="sos-btn" id="sosBtn">ℹ️ Resumo</button>
+  <button class="sos-btn" id="sosBtn">🆘 Emergência</button>
 
-  <!-- Navegação Inferior (Bottom Nav) -->
   <nav class="bottomnav" aria-label="Navegação principal">
-    <button type="button" class="navbtn" data-goto="home" aria-current="true">🏠<span>Início</span></button>
-    <button type="button" class="navbtn" data-goto="recursos" aria-current="false">🧩<span>Recursos</span></button>
-    <button type="button" class="navbtn" data-goto="leitor" aria-current="false">🔊<span>Ouvir</span></button>
-    <button type="button" class="navbtn" data-goto="tecnica" aria-current="false">💻<span>Código</span></button>
-    <button type="button" class="navbtn" data-goto="perguntas" aria-current="false">❓<span>Tópicos</span></button>
+    <button class="navbtn" data-goto="home" aria-current="true"><span class="ic" aria-hidden="true">🏠</span>Início</button>
+    <button class="navbtn" data-goto="mapa" aria-current="false"><span class="ic" aria-hidden="true">🗺️</span>Mapa</button>
+    <button class="navbtn" data-goto="leitor" aria-current="false"><span class="ic" aria-hidden="true">📷</span>Leitor</button>
+    <button class="navbtn" data-goto="comunidade" aria-current="false"><span class="ic" aria-hidden="true">💬</span>Comunidade</button>
+    <button class="navbtn" data-goto="config" aria-current="false"><span class="ic" aria-hidden="true">⚙️</span>Config</button>
   </nav>
 </div>
 
 <div id="liveRegion" class="sr-only" role="status" aria-live="polite"></div>
+
 <script src="js/script.js"></script>
 </body>
 </html>

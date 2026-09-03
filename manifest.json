@@ -1,0 +1,58 @@
+{
+  "id": "/",
+  "name": "AcessaAqui — Acessibilidade e Autonomia",
+  "short_name": "AcessaAqui",
+  "description": "App de acessibilidade que ajuda pessoas com deficiência a navegar espaços físicos e digitais com mais autonomia: mapa acessível, leitor de texto por câmera, legendas ao vivo e botão de emergência.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#DDE3DA",
+  "theme_color": "#1F6F5C",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["lifestyle", "utilities", "medical"],
+  "img": [
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mapa de acessibilidade",
+      "short_name": "Mapa",
+      "description": "Ver locais avaliados perto de você",
+      "url": "./index.html?tela=mapa",
+      "icons": [{ "src": "img/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Leitor de texto",
+      "short_name": "Leitor",
+      "description": "Ler um texto em voz alta",
+      "url": "./index.html?tela=leitor",
+      "icons": [{ "src": "img/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Emergência",
+      "short_name": "SOS",
+      "description": "Acionar contato de emergência",
+      "url": "./index.html?tela=sos",
+      "icons": [{ "src": "img/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
